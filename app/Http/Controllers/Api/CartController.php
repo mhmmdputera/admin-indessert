@@ -140,4 +140,23 @@ class CartController extends Controller
             'message' => 'Remove All Item in Cart',
         ]);
     }
+
+    /**
+     * getCartQuantity
+     *
+     * @return void
+    */
+    public function getCartQuantity()
+    {
+        $quantity = Cart::with('product')
+                ->where('customer_id', auth()->user()->id)
+                ->orderBy('created_at', 'desc')
+                ->sum('quantity');
+        
+        return response()->json([
+            'success' => true,
+            'message' => 'Total Cart Quantity',
+            'quantity' => $quantity
+        ]);
+    }
 }

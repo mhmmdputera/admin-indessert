@@ -34,6 +34,7 @@ Route::group(['middleware' => 'auth:api'], function() {
     Route::post('/cart', [CartController::class, 'store'])->name('customer.cart.store');
     Route::get('/cart/total', [CartController::class, 'getCartTotal'])->name('customer.cart.total');
     Route::get('/cart/totalWeight', [CartController::class, 'getCartTotalWeight'])->name('customer.cart.getCartTotalWeight');
+    Route::get('/cart/quantity', [CartController::class, 'getCartQuantity'])->name('customer.cart.getCartQuantity');
     Route::post('/cart/remove', [CartController::class, 'removeCart'])->name('customer.cart.remove');
     Route::post('/cart/removeAll', [CartController::class, 'removeAllCart'])->name('customer.cart.removeAll');
 
