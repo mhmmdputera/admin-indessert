@@ -115,6 +115,7 @@ class ProductController extends Controller
            'discount'       => 'required',
            'stock'          => 'required|integer',
            'status'         => 'required|in:open,tutup',
+           'image'          => 'sometimes|image|mimes:jpeg,jpg,png|max:2000',
        ]); 
 
        //cek jika image kosong
@@ -166,9 +167,6 @@ class ProductController extends Controller
        if($product){
             //redirect dengan pesan sukses
             return redirect()->route('admin.product.index')->with(['success' => 'Data Berhasil Diupdate!']);
-        }else{
-            //redirect dengan pesan error
-            return redirect()->route('admin.product.index')->with(['error' => 'Data Gagal Diupdate!']);
         }
     }
     
