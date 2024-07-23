@@ -78,7 +78,7 @@
         </tbody>
         <tfoot>
             <tr>
-                <th colspan="4" class="text-right">Total Grand Total:</th>
+                <th colspan="4" class="text-right">Grand Total:</th>
                 <th class="text-right">{{ moneyFormat($totalGrandTotal) }}</th>
             </tr>
         </tfoot>
