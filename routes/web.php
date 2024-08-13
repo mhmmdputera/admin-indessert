@@ -33,9 +33,9 @@ Route::prefix('admin')->group(function () {
         Route::resource('/order', OrderController::class, ['except' => ['create', 'store', 'edit', 'update', 'destroy'], 'as' => 'admin']);
 
         //route customer
-        Route::resource('/customer', CustomerController::class, ['except' => ['show', 'destroy'], 'as' => 'admin']);
-        Route::get('customer/{id}', [CustomerController::class, 'show'])->name('admin.customer.show');
-        Route::delete('customer/{id}', [CustomerController::class, 'destroy'])->name('admin.customer.destroy');
+        Route::resource('/customer', CustomerController::class, ['except' => ['edit'], 'as' => 'admin']);
+        // Route::get('customer/{id}', [CustomerController::class, 'show'])->name('admin.customer.show');
+        // Route::delete('customer/{id}', [CustomerController::class, 'destroy'])->name('admin.customer.destroy');
 
         //route slider
         Route::resource('/slider', SliderController::class, ['except' => ['show', 'create', 'edit', 'update'], 'as' => 'admin']);
