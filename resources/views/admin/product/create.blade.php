@@ -75,7 +75,7 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>STATUS</label>
+                                    <label>STATUS PRE-ORDER</label>
                                     <select name="status" class="form-control @error('status') is-invalid @enderror">
                                         <option value="open" {{ old('status') == 'open' ? 'selected' : '' }}>Open</option>
                                         <option value="tutup" {{ old('status') == 'tutup' ? 'selected' : '' }}>Tutup</option>
