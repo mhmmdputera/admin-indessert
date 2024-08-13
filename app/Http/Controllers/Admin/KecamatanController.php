@@ -61,17 +61,6 @@ class KecamatanController extends Controller
     }
 
     /**
-     * Menampilkan detail kecamatan.
-     *
-     * @param  \App\Models\Kecamatan  $kecamatan
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Kecamatan $kecamatan)
-    {
-        return view('admin.kecamatan.show', compact('kecamatan'));
-    }
-
-    /**
      * Menampilkan formulir untuk mengedit kecamatan.
      *
      * @param  \App\Models\Kecamatan  $kecamatan

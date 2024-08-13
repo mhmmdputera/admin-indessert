@@ -47,20 +47,19 @@ Route::prefix('admin')->group(function () {
         Route::resource('/user', UserController::class, ['except' => ['show'], 'as' => 'admin']);
 
         //route kabupaten
-        Route::resource('/kabupaten', KabupatenController::class, ['as' => 'admin']);
+        Route::resource('/kabupaten', KabupatenController::class, ['except' => ['show'], 'as' => 'admin']);
 
         //route kecamatan
-        Route::resource('/kecamatan', KecamatanController::class, ['as' => 'admin']);
+        Route::resource('/kecamatan', KecamatanController::class, ['except' => ['show'], 'as' => 'admin']);
 
         //route laporan
-        Route::resource('/laporan', LaporanController::class, ['as' => 'admin'])->except(['show']);
+        Route::get('/laporan', [LaporanController::class, 'index'])->name('admin.laporan.index');
         Route::get('/laporan/cetak', [LaporanController::class, 'cetak'])->name('admin.laporan.cetak');
 
         //route riwayat pesanan
-        Route::get('/riwayat/{id}', [RiwayatController::class, 'show'])->name('admin.riwayat.show');
-        Route::get('/riwayat', [RiwayatController::class, 'index'])->name('admin.riwayat.index');
+        Route::resource('/riwayat', RiwayatController::class, ['except' => ['create', 'store', 'edit', 'update', 'destroy'], 'as' => 'admin']);
 
         //route telegram
-        Route::resource('/telegram', TelegramController::class, ['as' => 'admin']);
+        Route::resource('/telegram', TelegramController::class, ['except' => ['show', 'create'], 'as' => 'admin']);
     });
 });
