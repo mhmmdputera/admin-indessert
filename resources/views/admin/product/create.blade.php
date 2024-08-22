@@ -27,16 +27,35 @@
                             @enderror
                         </div>
 
-                        <div class="form-group">
-                            <label>NAMA PRODUK</label>
-                            <input type="text" name="title" value="{{ old('title') }}" placeholder="Masukkan Nama Produk"
-                                class="form-control @error('title') is-invalid @enderror">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>NAMA PRODUK</label>
+                                    <input type="text" name="title" value="{{ old('title') }}" placeholder="Masukkan Nama Produk"
+                                        class="form-control @error('title') is-invalid @enderror">
 
-                            @error('title')
-                            <div class="invalid-feedback" style="display: block">
-                                {{ $message }}
+                                    @error('title')
+                                    <div class="invalid-feedback" style="display: block">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
+                                </div>
                             </div>
-                            @enderror
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>BAHAN</label>
+                                    <input type="text" name="bahan" value="{{ old('bahan') }}" placeholder="Masukkan Bahan Produk"
+                                        class="form-control @error('bahan') is-invalid @enderror" data-role="tagsinput">
+                            
+                                    @error('bahan')
+                                    <div class="invalid-feedback" style="display: block">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
+                                </div>
+                            </div>
+                            
                         </div>
 
                         <div class="row">
@@ -176,5 +195,36 @@
     };
 
     tinymce.init(editor_config);
+
+    $(document).ready(function() {
+        $('input[name="bahan"]').tagsinput({
+            trimValue: true,
+            allowDuplicates: false,
+            confirmKeys: [13, 32] // Enter dan Spasi untuk memisahkan kata menjadi tag
+        });
+    });
 </script>
+
+<style>
+    .bootstrap-tagsinput {
+        width: 100%;
+        min-height: calc(1.5em + .75rem + 2px);
+        padding: .375rem .75rem;
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.5;
+        background-color: #ffffff;
+        border: 1px solid #ced4da;
+        border-radius: .25rem;
+    }
+    
+    .bootstrap-tagsinput .tag {
+        margin-right: 2px;
+        color: white;
+        background-color: #c69a41;; /* Ubah warna latar belakang */
+        padding: .2rem .4rem;
+        border-radius: .2rem;
+    }
+
+</style>
 @endsection

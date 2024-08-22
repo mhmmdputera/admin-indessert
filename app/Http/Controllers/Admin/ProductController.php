@@ -53,6 +53,7 @@ class ProductController extends Controller
            'price'          => 'required',
            'discount'       => 'required',
            'stock'          => 'required|integer',
+           'bahan'          => 'required',
            'status'         => 'required|in:open,tutup',
        ]); 
 
@@ -73,6 +74,7 @@ class ProductController extends Controller
            'stock'          => $request->stock,
            'keywords'       => $request->keywords,
            'description'    => $request->description,
+           'bahan'          => $request->bahan,
            'status'         => $request->status
        ]);
 
@@ -113,6 +115,7 @@ class ProductController extends Controller
            'weight'         => 'required',
            'price'          => 'required',
            'discount'       => 'required',
+           'bahan'          => 'required',
            'stock'          => 'required|integer',
            'status'         => 'required|in:open,tutup',
            'image'          => 'sometimes|image|mimes:jpeg,jpg,png|max:2000',
@@ -134,6 +137,7 @@ class ProductController extends Controller
                 'stock'          => $request->stock,
                 'keywords'       => $request->keywords,
                 'description'    => $request->description,
+                'bahan'          => $request->bahan,
                 'status'         => $request->status
             ]);
 
@@ -160,6 +164,7 @@ class ProductController extends Controller
                 'stock'          => $request->stock,
                 'keywords'       => $request->keywords,
                 'description'    => $request->description,
+                'bahan'          => $request->bahan,
                 'status'         => $request->status
             ]);
        }

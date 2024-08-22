@@ -43,13 +43,18 @@
       border-bottom: 1px solid #e3e6f0;
       color: white;
     }
+
+    
   </style>
 
   <!-- jQuery -->
   <script src="{{ asset('assets/vendor/jquery/jquery.min.js') }}"></script>  
 
   <!-- sweet alert -->
-  <script src="{{ asset('assets/js/sweetalert.min.js') }}"></script>  
+  <script src="{{ asset('assets/js/sweetalert.min.js') }}"></script>
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/bootstrap.tagsinput/0.8.0/bootstrap-tagsinput.css">
+  <script src="https://cdn.jsdelivr.net/bootstrap.tagsinput/0.8.0/bootstrap-tagsinput.min.js"></script>
 
 </head>
 

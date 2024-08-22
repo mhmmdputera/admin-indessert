@@ -30,25 +30,22 @@ class ProductController extends Controller
      * @return void
      */
     public function show($slug)
-    {
-        $product = Product::where('slug', $slug)->first();
+{
+    $product = Product::where('slug', $slug)->first();
 
-        if($product) {
-
-            return response()->json([
-                'success' => true,
-                'message'   => 'Detail Data Product',
-                'product' => $product
-            ], 200);
-
-        } else {
-
-            return response()->json([
-                'success' => false,
-                'message'   => 'Data Product Tidak Ditemukan',
-            ], 404);
-
-        }
+    if ($product && $product->status !== 'tutup') {
+        return response()->json([
+            'success' => true,
+            'message' => 'Detail Data Product',
+            'product' => $product
+        ], 200);
+    } else {
+        return response()->json([
+            'success' => false,
+            'message' => 'Produk tidak tersedia atau sudah ditutup.',
+        ], 404);
     }
+}
+
 
 }
